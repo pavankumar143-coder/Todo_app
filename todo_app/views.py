@@ -18,9 +18,9 @@ class LoginView(generics.CreateAPIView):
     serializer_class = UserSerializer
 
     def post(self, request, *args, **kwargs):
-        mobile = request.data.get("mobile", "")
-        username = request.data.get("username","")
-        password = request.data.get("password", "")
+        mobile = request.data.get("mobile")
+        username = request.data.get("username")
+        password = request.data.get("password")
         user = User.objects.filter(mobile=mobile,username=username, password=password).first()
         if user:
             refresh = RefreshToken.for_user(user)
