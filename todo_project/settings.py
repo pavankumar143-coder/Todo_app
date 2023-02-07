@@ -42,7 +42,14 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'todo_app.User'  #  where user is the app name and User is the model class name
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated'
+    ],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
