@@ -5,6 +5,7 @@ from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.pagination import PageNumberPagination
 # Create your views here.
 
 class SignUpView(generics.CreateAPIView):
@@ -28,9 +29,15 @@ class LoginView(generics.CreateAPIView):
         else:
             return Response({"error": "Invalid mobile,username,or password"}, status=400)
 
+class Pages_Pagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 100
+
 class TodoListCreateView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = TodoSerializer
+    pagination_class = Pages_Pagination
 
     def get_queryset(self):
         return Todo.objects.filter(owner=self.request.user)
