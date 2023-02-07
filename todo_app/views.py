@@ -28,3 +28,9 @@ class LoginView(generics.CreateAPIView):
         else:
             return Response({"error": "Invalid mobile,username,or password"}, status=400)
 
+class TodoListCreateView(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = TodoSerializer
+
+    def get_queryset(self):
+        return Todo.objects.filter(owner=self.request.user)
