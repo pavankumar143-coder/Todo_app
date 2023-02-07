@@ -28,4 +28,3 @@ class LoginView(generics.CreateAPIView):
         else:
             return Response({"error": "Invalid mobile,username,or password"}, status=400)
 
-
