@@ -1,0 +1,17 @@
+user_name:pavan
+owner:1
+token:
+{
+  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcwNzM3OTM4OSwiaWF0IjoxNjc1ODQzMzg5LCJqdGkiOiI1YWNhZmEzNWI3ZTQ0YTcxOGJiMjBmNDQxYzI0NjEyMCIsInVzZXJfaWQiOjF9.-0183Kk8_V9-cQII2vx-bJu3iB5nfMQrClDCMjWiCs8",
+  "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA3Mzc5Mzg5LCJpYXQiOjE2NzU4NDMzODksImp0aSI6ImIyMDUyODk0MWIwZDRjMjhiOTliYWFlMWJkZTNmNDAyIiwidXNlcl9pZCI6MX0.srGZzxR0NVtPfmPt7Lz4RUKxGInWCLQI6AFRCkyeYMI"
+}
+
+#######################################################################################################
+
+user_name:Aakash
+owner:2
+token:
+{
+  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcwNzM4MDA4NSwiaWF0IjoxNjc1ODQ0MDg1LCJqdGkiOiI5YjA1ZjU5YTRhZjM0NDE5YTA0MjU2MGNkMDAwMDZhOSIsInVzZXJfaWQiOjN9.qupNx843E1kVvwAzJ9-XKuaMzQVmTg8StdTD_ItxkbY",
+  "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA3MzgwMDg1LCJpYXQiOjE2NzU4NDQwODUsImp0aSI6IjFmN2U5MmQ3MWY0MTRkMDhhM2YxYzUwMzg0NGIwZDY1IiwidXNlcl9pZCI6M30.jwyD65nv_fjKO858gJg1FyMwZSzbHXf8Pp_5okzQQYI"
+}
