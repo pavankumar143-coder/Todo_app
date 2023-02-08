@@ -8,7 +8,6 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 
 class TodoSerializer(serializers.ModelSerializer):
-    # owner = UserSerializer(read_only=True)
     class Meta:
         model = Todo
         fields = ['id', 'owner', 'task', 'due_date', 'completed']
