@@ -50,6 +50,8 @@ class LoginView(generics.CreateAPIView):
         else:
             return Response({"error": "Invalid mobile,username,or password"}, status=status.HTTP_400_BAD_REQUEST)
 
+
+
 class Pages_Pagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = 'page_size'
