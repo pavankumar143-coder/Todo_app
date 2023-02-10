@@ -29,7 +29,7 @@ class SignUpView(generics.CreateAPIView):
         if user:
             serializer = self.serializer_class(user)
             return Response(serializer.data)
-        return Response({"error": "Could not create user"}, status=400)
+        return Response({"error": "Could not create user"}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 
@@ -48,7 +48,7 @@ class LoginView(generics.CreateAPIView):
             response = {"refresh": str(refresh), "access": str(refresh.access_token)}
             return Response(response)
         else:
-            return Response({"error": "Invalid mobile,username,or password"}, status=400)
+            return Response({"error": "Invalid mobile,username,or password"}, status=status.HTTP_400_BAD_REQUEST)
 
 class Pages_Pagination(PageNumberPagination):
     page_size = 10
