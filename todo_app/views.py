@@ -9,6 +9,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import status
+from .keys import *
 # Create your views here.
 
 class SignUpView(generics.CreateAPIView):
@@ -19,7 +20,7 @@ class SignUpView(generics.CreateAPIView):
         user_name = request.data.get("username")
         password = request.data.get("password")
         if not mobile or not user_name or not password:
-            return Response({"error": "Please provide all required data"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'message':MESSAGE}, status=status.HTTP_400_BAD_REQUEST)
         user = User.objects.create_user(
             mobile=mobile, username=user_name
         )
@@ -29,7 +30,7 @@ class SignUpView(generics.CreateAPIView):
         if user:
             serializer = self.serializer_class(user)
             return Response(serializer.data)
-        return Response({"error": "Could not create user"}, status=status.HTTP_401_UNAUTHORIZED)
+        return Response({'User':USER_MESSAGE}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 
@@ -48,7 +49,7 @@ class LoginView(generics.CreateAPIView):
             response = {"refresh": str(refresh), "access": str(refresh.access_token)}
             return Response(response)
         else:
-            return Response({"error": "Invalid mobile,username,or password"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"login_Error":LOGIN_ERROR}, status=status.HTTP_400_BAD_REQUEST)
 
 class Pages_Pagination(PageNumberPagination):
     page_size = 10
