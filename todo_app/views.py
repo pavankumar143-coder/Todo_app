@@ -50,8 +50,6 @@ class LoginView(generics.CreateAPIView):
         else:
             return Response({"error": "Invalid mobile,username,or password"}, status=status.HTTP_400_BAD_REQUEST)
 
-
-
 class Pages_Pagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = 'page_size'
@@ -70,16 +68,20 @@ class TodoListCreateView(generics.ListCreateAPIView):
         completed = request.GET.get('completed')
         if due_date:
             queryset = queryset.filter(owner=self.request.user,due_date=due_date)
-            serializer = self.get_serializer(queryset,many=True) 
+            paginate = self.paginate_queryset(queryset)
+            serializer = self.get_serializer(paginate,many=True) 
 
         elif completed:
             queryset = queryset.filter(owner=self.request.user,completed=completed)
-            serializer = self.get_serializer(queryset,many=True) 
+            paginate = self.paginate_queryset(queryset)
+            serializer = self.get_serializer(paginate,many=True) 
 
         else:
             queryset = Todo.objects.all()
+            
             queryset = queryset.filter(owner=self.request.user)
-            serializer = self.get_serializer(queryset,many=True)
+            paginate = self.paginate_queryset(queryset)
+            serializer = self.get_serializer(paginate,many=True)
         
         return Response( serializer.data,status=status.HTTP_200_OK) 
     # def get_queryset(self):
